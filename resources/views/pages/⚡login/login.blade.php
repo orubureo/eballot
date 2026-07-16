@@ -13,7 +13,7 @@
             style="background: oklch(0.81 0.02 196.7);">
         </div>
 
-        <div class="bg-white p-10 rounded-xl w-full md:w-[800px] space-y-4">
+        <div class="bg-base-100 p-10 rounded-xl w-full md:w-[800px] space-y-4">
 
             <div class="flex flex-col gap-y-4 items-center">
 
@@ -38,8 +38,7 @@
                     <fieldset class="fieldset">
 
                         <label class="label">Email</label>
-                        <input type="email" wire:model="email" class="input w-full bg-amber"
-                            placeholder="Example@mail.com" />
+                        <input type="email" wire:model="email" class="input w-full" placeholder="Example@mail.com" />
                         @error('email')
                             <span class="text-error text-xs">{{ $message }}</span>
                         @enderror
@@ -48,8 +47,8 @@
                     <fieldset class="fieldset">
 
                         <label class="label">Password</label>
-                        <input type="password" wire:model="password" autocomplete="new-password"
-                            class="input w-full bg-amber" placeholder="***********" />
+                        <input type="password" wire:model="password" autocomplete="new-password" class="input w-full"
+                            placeholder="***********" />
                         @error('password')
                             <span class="text-error text-xs">{{ $message }}</span>
                         @enderror

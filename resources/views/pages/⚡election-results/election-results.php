@@ -9,14 +9,9 @@ new class extends Component {
 
     public function mount(Election $election): void
     {
-        $user = auth()->user();
-
-        $hasVoted = Vote::where('user_id', $user->id)
-            ->where('election_id', $election->id)
-            ->exists();
-
-        if (!$hasVoted) {
-            $this->redirectRoute('account.dashboard', navigate: true);
+        if (in_array($election->status, ['upcoming', 'draft'])) {
+            session()->flash('error', 'Results are only available once voting has started.');
+            $this->redirectRoute('account.elections', navigate: true);
             return;
         }
 

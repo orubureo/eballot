@@ -43,3 +43,95 @@
     --depth: 1;
     --noise: 0;
 }
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatSlow {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(12px, -18px);
+    }
+}
+
+@keyframes floatSlower {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-14px, 16px);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.reveal {
+    opacity: 0;
+}
+
+.reveal.in-view {
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.reveal-delay-1.in-view {
+    animation-delay: 0.08s;
+}
+
+.reveal-delay-2.in-view {
+    animation-delay: 0.16s;
+}
+
+.reveal-delay-3.in-view {
+    animation-delay: 0.24s;
+}
+
+.hero-gradient-bg {
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
+}
+
+.blob-float-1 {
+    animation: floatSlow 9s ease-in-out infinite;
+}
+
+.blob-float-2 {
+    animation: floatSlower 11s ease-in-out infinite;
+}
+
+.hover-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}

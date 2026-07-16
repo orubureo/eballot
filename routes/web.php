@@ -12,6 +12,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::name('account.')->group(function () {
         Route::livewire('/dashboard', 'pages::dashboard')->name('dashboard');
+        Route::livewire('/elections', 'pages::elections')->name('elections');
+        Route::livewire('/elections/{election}', 'pages::elections-details')->name('elections.details');
         Route::livewire('/vote/{election}', 'pages::vote')->name('vote');
         Route::livewire('/results/{election}', 'pages::election-results')->name('results');
     });

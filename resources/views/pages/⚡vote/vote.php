@@ -47,6 +47,15 @@ new class extends Component {
         ];
     }
 
+    public function validateSelection(): void
+    {
+        if (!$this->selectedCandidate) {
+            $this->addError('selectedCandidate', 'You have not selected a candidate yet.');
+        } else {
+            $this->resetErrorBag('selectedCandidate');
+        }
+    }
+
     public function castVote(): void
     {
         $this->validate();

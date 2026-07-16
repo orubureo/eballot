@@ -13,7 +13,7 @@
         </button>
     </div>
 
-    <div class="card bg-white rounded-2xl shadow border border-base-300">
+    <div class="card bg-white rounded-2xl border border-base-300">
         <div class="overflow-x-auto">
             <table class="table">
                 <thead>

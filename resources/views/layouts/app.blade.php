@@ -13,9 +13,9 @@
 </head>
 
 <body>
-
+    {{-- @auth lg:mt-0 lg:pl-64 @endauth --}}
     @livewire('navbar')
-    <main class="bg-[#f4f7fa] flex flex-col min-h-screen space-y-4 mt-10 @auth lg:mt-0 lg:pl-64 @endauth">
+    <main class="bg-[#f4f7fa] flex flex-col min-h-screen space-y-4 mt-10">
 
         <div>
             {{ $slot }}

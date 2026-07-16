@@ -1,5 +1,5 @@
 <div x-data="{ open: false }">
-    <div class="navbar bg-white shadow-sm px-4 fixed top-0 z-10 {{ auth()->check() ? 'lg:hidden' : '' }}">
+    <div class="navbar bg-white shadow-sm px-4 fixed top-0 z-10">
         <div class="navbar-start">
             {{-- Hamburger (mobile only) --}}
             @if (auth()->check())
@@ -36,6 +36,18 @@
                             class="{{ request()->routeIs('admin.results') ? 'text-primary font-medium' : '' }}">Results</a>
                     </li>
                 </ul>
+            @else
+                <ul class="menu menu-horizontal gap-1 px-1">
+                    <li><a href="{{ route('account.dashboard') }}" wire:navigate
+                            class="{{ request()->routeIs('account.dashboard') ? 'text-primary font-medium' : '' }}">Dashboard</a>
+                    </li>
+                    <li><a href="{{ route('account.elections') }}" wire:navigate
+                            class="{{ request()->routeIs('account.elections') ? 'text-primary font-medium' : '' }}">Elections</a>
+                    </li>
+                    {{-- <li><a href="{{ route('account.results') }}" wire:navigate
+                            class="{{ request()->routeIs('account.results') ? 'text-primary font-medium' : '' }}">Results</a>
+                    </li> --}}
+                </ul>
             @endif
         </div>
 
@@ -55,47 +67,50 @@
     </div>
 
     {{-- Desktop sidebar (authenticated only, lg and up) --}}
+    {{--
+
     @if (auth()->check())
-        <aside class="hidden lg:flex lg:flex-col fixed top-0 left-0 h-full w-64 bg-white border-r border-base-300 z-10">
-            <div class="flex items-center h-16 px-4 border-b border-base-300">
-                <a href="{{ auth()->user()->is_admin ? route('admin.dashboard') : route('account.dashboard') }}"
-                    wire:navigate>
-                    <img src="{{ asset('images/eballot-logo.png') }}" class="h-8" alt="eBallot" />
-                </a>
-            </div>
+    <aside class="hidden lg:flex lg:flex-col fixed top-0 left-0 h-full w-64 bg-white border-r border-base-300 z-10">
+        <div class="flex items-center h-16 px-4 border-b border-base-300">
+            <a href="{{ auth()->user()->is_admin ? route('admin.dashboard') : route('account.dashboard') }}"
+                wire:navigate>
+                <img src="{{ asset('images/eballot-logo.png') }}" class="h-8" alt="eBallot" />
+            </a>
+        </div>
 
-            <nav class="flex-1 px-3 py-4 overflow-y-auto">
-                @if (auth()->user()->is_admin)
-                    <ul class="menu gap-1 w-full">
-                        <li><a href="{{ route('admin.dashboard') }}" wire:navigate
-                                class="{{ request()->routeIs('admin.dashboard') ? 'bg-primary/10 text-primary font-medium' : '' }}">
-                                <i class="bi bi-speedometer2"></i> Dashboard</a></li>
-                        <li><a href="{{ route('admin.elections') }}" wire:navigate
-                                class="{{ request()->routeIs('admin.elections') ? 'bg-primary/10 text-primary font-medium' : '' }}">
-                                <i class="bi bi-calendar3"></i> Elections</a></li>
-                        <li><a href="{{ route('admin.voters') }}" wire:navigate
-                                class="{{ request()->routeIs('admin.voters') ? 'bg-primary/10 text-primary font-medium' : '' }}">
-                                <i class="bi bi-people"></i> Voters</a></li>
-                        <li><a href="{{ route('admin.results') }}" wire:navigate
-                                class="{{ request()->routeIs('admin.results') ? 'bg-primary/10 text-primary font-medium' : '' }}">
-                                <i class="bi bi-bar-chart"></i> Results</a></li>
-                    </ul>
-                @else
-                    <ul class="menu gap-1 w-full">
-                        <li><a href="{{ route('account.dashboard') }}" wire:navigate
-                                class="{{ request()->routeIs('account.dashboard') ? 'bg-primary/10 text-primary font-medium' : '' }}">
-                                <i class="bi bi-speedometer2"></i> Dashboard</a></li>
-                    </ul>
-                @endif
-            </nav>
+        <nav class="flex-1 px-3 py-4 overflow-y-auto">
+            @if (auth()->user()->is_admin)
+            <ul class="menu gap-1 w-full">
+                <li><a href="{{ route('admin.dashboard') }}" wire:navigate
+                        class="{{ request()->routeIs('admin.dashboard') ? 'bg-primary/10 text-primary font-medium' : '' }}">
+                        <i class="bi bi-speedometer2"></i> Dashboard</a></li>
+                <li><a href="{{ route('admin.elections') }}" wire:navigate
+                        class="{{ request()->routeIs('admin.elections') ? 'bg-primary/10 text-primary font-medium' : '' }}">
+                        <i class="bi bi-calendar3"></i> Elections</a></li>
+                <li><a href="{{ route('admin.voters') }}" wire:navigate
+                        class="{{ request()->routeIs('admin.voters') ? 'bg-primary/10 text-primary font-medium' : '' }}">
+                        <i class="bi bi-people"></i> Voters</a></li>
+                <li><a href="{{ route('admin.results') }}" wire:navigate
+                        class="{{ request()->routeIs('admin.results') ? 'bg-primary/10 text-primary font-medium' : '' }}">
+                        <i class="bi bi-bar-chart"></i> Results</a></li>
+            </ul>
+            @else
+            <ul class="menu gap-1 w-full">
+                <li><a href="{{ route('account.dashboard') }}" wire:navigate
+                        class="{{ request()->routeIs('account.dashboard') ? 'bg-primary/10 text-primary font-medium' : '' }}">
+                        <i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            </ul>
+            @endif
+        </nav>
 
-            <div class="px-3 py-4 border-t border-base-300">
-                <a href="{{ route('logout') }}" wire:navigate class="btn btn-soft btn-error btn-sm rounded-full w-full">
-                    <i class="bi bi-box-arrow-in-right"></i> Sign Out
-                </a>
-            </div>
-        </aside>
+        <div class="px-3 py-4 border-t border-base-300">
+            <a href="{{ route('logout') }}" wire:navigate class="btn btn-soft btn-error btn-sm rounded-full w-full">
+                <i class="bi bi-box-arrow-in-right"></i> Sign Out
+            </a>
+        </div>
+    </aside>
     @endif
+    --}}
 
     {{-- Mobile sidebar drawer (unchanged) --}}
     @if (auth()->check())

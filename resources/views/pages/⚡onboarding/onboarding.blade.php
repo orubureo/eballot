@@ -1,5 +1,5 @@
 <div>
-    <div class="relative min-h-screen flex flex-col md:flex-row items-center gap-12 px-8 py-24 md:px-16 md:py-12 overflow-hidden"
+    <div class="relative min-h-screen flex flex-col md:flex-row justify-center items-center gap-12 px-8 py-24 md:px-16 md:py-12 overflow-hidden"
         style="background: linear-gradient(135deg, oklch(0.52 0.08 176.23) 0%, oklch(0.39 0.07 217.51) 100%);">
 
         <div class="absolute inset-0 opacity-10"
@@ -10,7 +10,7 @@
         </div>
         <div class="absolute bottom-0 left-0 w-72 h-72 rounded-full opacity-20 blur-3xl"
             style="background: oklch(0.81 0.02 196.7);">
-        </div>div>
+        </div>
 
         <div class="bg-white p-10 rounded-xl w-full max-w-[900px] mx-4">
 
@@ -31,13 +31,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <fieldset class="fieldset">
                         <label class="label">Fullname</label>
-                        <input type="text" wire:model="full_names" class="input w-full" placeholder="Fullname" />
+                        <input type="text" wire:model="full_names" class="input w-full" placeholder="John Doe" />
                         @error('full_names') <span class="text-error text-xs">{{ $message }}</span> @enderror
                     </fieldset>
                     <fieldset class="fieldset">
                         <label class="label">Email</label>
                         <input type="email" wire:model="email" autocomplete="off" class="input w-full"
-                            placeholder="Email" />
+                            placeholder="Example@mail.com" />
                         @error('email') <span class="text-error text-xs">{{ $message }}</span> @enderror
                     </fieldset>
                 </div>
@@ -45,7 +45,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
                     <fieldset class="fieldset">
                         <label class="label">Phone Number</label>
-                        <input type="tel" wire:model="phone_number" class="input w-full" placeholder="9876543210" />
+                        <input type="tel" wire:model="phone_number" class="input w-full"
+                            placeholder="+234 9876543210" />
                         @error('phone_number') <span class="text-error text-xs">{{ $message }}</span> @enderror
                     </fieldset>
                     <fieldset class="fieldset">
